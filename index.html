@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <title>Meme Generator</title>
 </head>
 
@@ -34,15 +34,18 @@
                 </div>
                 <div class="control-box">
                     <h3>Edit Text Lines</h3>
-                    <lable for="line-top">Top line
-                        <input class="text-line" type="text" name="line-top" onchange="onEditMemeText(value)"></input>
+                    <lable for="1">Top line
+                        <input class="text-line" type="text" name="1" onchange="onEditMemeText(value, name)"></input>
                     </lable>
-                    <lable for="line-bottom">Bottom line
-                        <input class="text-line" type="text" name="line-bottom"
-                            onchange="onEditMemeText(value)"></input>
+                    <lable for="2">Bottom line
+                        <input class="text-line" type="text" name="2"
+                            onchange="onEditMemeText(value, name)"></input>
                     </lable>
-                    <button>Increase</button>
-                    <button>Decrease</button>
+                    <button>A+</button>
+                    <button>A-</button>
+                    <button>⬆</button>
+                    <button>⬇</button>
+                    <a class="download" href="#" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a>
                 </div>
             </div>
         </div>

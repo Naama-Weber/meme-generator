@@ -9,13 +9,6 @@ body {
   margin: 0 auto;
 }
 
-/* TYPOGRAPHY */
-
-@font-face {
-  font-family: impact;
-  src: url(../fonts/impact.ttf);
-}
-
 /* HEADER */
 
 header {

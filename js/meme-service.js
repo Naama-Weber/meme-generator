@@ -34,7 +34,6 @@ var gMeme = {
     ]
 }
 
-var gCurrLine = 1;
 
 function getMeme() {
     return gMeme;
