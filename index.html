@@ -11,14 +11,16 @@
 </head>
 
 <body onload="onInit()">
+    <div class="main-screen" onclick="onToggleMenu()"></div>
     <header>
         <div><img class="logo-img" src="images/logos/logo.png"></div>
         <div class="nav-container">
-            <nav>
+            <nav class="main-nav">
                 <a href="#">Memes</a>
                 <a href="#">Gallery</a>
                 <a href="#">About</a>
             </nav>
+            <button class="btn-menu" onclick="onToggleMenu()">☰</button>
         </div>
     </header>
 
@@ -26,29 +28,34 @@
         <div class="search-bar">
             <form>
                 <input type="text" placeholder="Search.." name="search">
-                <button>🔍</button>
             </form>
-            <div class="meme-editor">
-                <div class="canvas-container">
-                    <canvas id="canvas" width="450" height="450"></canvas>
-                </div>
-                <div class="control-box">
-                    <h3>Edit Text Lines</h3>
-                    <lable for="1">Top line
-                        <input class="text-line" type="text" name="1" onchange="onEditMemeText(value, name)"></input>
-                    </lable>
-                    <lable for="2">Bottom line
-                        <input class="text-line" type="text" name="2"
-                            onchange="onEditMemeText(value, name)"></input>
-                    </lable>
-                    <button>A+</button>
-                    <button>A-</button>
-                    <button>⬆</button>
-                    <button>⬇</button>
+        </div>
+        <div class="meme-editor hide-editor">
+            <div class="canvas-container">
+                <canvas id="canvas" width="450" height="450"></canvas>
+            </div>
+            <div class="control-box">
+                <button class="back-btn" onclick="onGoBack()">←</button>
+                <h3>Edit Text Lines</h3>
+                <lable for="0">Top line
+                    <input class="text-line" type="text" name="0" oninput="onEditText(this.value, +name)"></input>
+                </lable>
+                <lable for="1">Bottom line
+                    <input class="text-line" type="text" name="1" oninput="onEditText(this.value, +name)"></input>
+                </lable>
+                <span class="new-line"></span>
+                <div class="control-btns">
+                    <button data-size="2" onclick="onIncreaseText(+this.dataset.size)">A+</button>
+                    <button data-size="-2" onclick="onDecreaseText(+this.dataset.size)">A-</button>
+                    <button data-line="-10" onclick="onMoveLineUp(+this.dataset.line)">⬆</button>
+                    <button data-line="10" onclick="onMoveLineDown(+this.dataset.line)">⬇</button>
+                    <button onclick="onAddLine()">+</button>
                     <a class="download" href="#" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a>
+                    <a class="save" href="#" onclick="onSaveMeme(this)">Save</a>
                 </div>
             </div>
         </div>
+
         <div class="gallery-container"></div>
     </main>
 
@@ -56,6 +63,7 @@
 </body>
 
 <script src="js/meme-utils.js"></script>
+<script src="js/services/storage-service.js"></script>
 <script src="js/meme-service.js"></script>
 <script src="js/meme-controller.js"></script>
 

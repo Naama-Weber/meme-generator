@@ -1,5 +1,10 @@
 'use strict';
 
+var gCurrLineIdx = 0;
+var gCurrImg;
+var gCurrMeme;
+
+
 var gKeywords = { 'happy': 12, 'funny': 1 }
 var gImgs = [
     { id: 1, url: '1.jpg', keywords: ['politics'] },
@@ -26,10 +31,24 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'default',
-            size: 20,
-            align: 'left',
-            color: 'red'
+            txt: '',
+            size: 50,
+            font: 'Impact',
+            align: 'center',
+            fill: 'white',
+            stroke: 'black',
+            posX: 225,
+            posY: 100
+        },
+        {
+            txt: '',
+            size: 50,
+            font: 'Impact',
+            align: 'center',
+            fill: 'white',
+            stroke: 'black',
+            posX: 225,
+            posY: 400
         }
     ]
 }
@@ -39,35 +58,78 @@ function getMeme() {
     return gMeme;
 }
 
-// function getImgById(imgId) {
-//     return gImgs.find(function (img) {
-//         return img.id === imgId
-//     });
-// }
-    
 function getImgsForDisplay() {
     return gImgs;
 }
 
 function updateSelectedImg(imgId) {
     gMeme.selectedImgId = imgId;
+    gCurrImg = imgId
 }
 
 function updateSelectedLineIdx(line) {
     gMeme.selectedLineIdx = line;
-    gCurrLine = line;
+    gCurrLineIdx = line;
 }
 
-function updateLines(txt, size, align, color) {
-    gMeme.lines[0].txt = txt;
-    gMeme.lines[0].size = size;
-    gMeme.lines[0].align = align;
-    gMeme.lines[0].color = color;
+function updateMeme(key, val, line) {
+    const MEME = gMeme.lines[line];
+    switch (key) {
+        case 'txt':
+            MEME.txt = val;
+            break;
+        case 'size':
+            MEME.size += val;
+            break;
+        case 'lineX':
+            MEME.posX += val;
+            break;
+        case 'lineY':
+            MEME.posY += val;
+            break;
+        case 'fill':
+            MEME.fill = val;
+            break;
+        case 'stroke':
+            MEME.stroke = val;
+            break;
+        case 'font':
+            MEME.font = val;
+            break;
+        case 'align':
+            MEME.align = val;
+            break;
+    }
+}
+
+
+function updateLineSize(line, size) {
+    gMeme.selectedLineIdx = line;
+    gMeme.lines[gMeme.selectedLineIdx].size = size;
 }
 
 function getLines() {
-    return gMeme.lines[0];
+    return gMeme.lines;
 }
 
+function getLine() {
+    return gMeme.lines[gMeme.selectedLineIdx];
+}
 
+function getFontSize() {
+    return gMeme.lines[gCurrLineIdx].size;
+}
 
+function addLine() {
+    let line = {
+        txt: '',
+        size: 50,
+        font: 'Impact',
+        align: 'center',
+        fill: 'white',
+        stroke: 'black',
+        posX: 225,
+        posY: 225
+    }
+    gMeme.lines.push(line);
+}
