@@ -31,7 +31,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: '',
+            txt: 'line1',
             size: 50,
             font: 'Impact',
             align: 'center',
@@ -41,14 +41,14 @@ var gMeme = {
             posY: 100
         },
         {
-            txt: '',
+            txt: 'line2',
             size: 50,
             font: 'Impact',
             align: 'center',
             fill: 'white',
             stroke: 'black',
             posX: 225,
-            posY: 400
+            posY: 375
         }
     ]
 }
@@ -67,37 +67,43 @@ function updateSelectedImg(imgId) {
     gCurrImg = imgId
 }
 
-function updateSelectedLineIdx(line) {
-    gMeme.selectedLineIdx = line;
-    gCurrLineIdx = line;
+function changeCurrLineIdx(idx) {
+    gMeme.selectedLineIdx = idx;
+    gCurrLineIdx = idx;
 }
 
-function updateMeme(key, val, line) {
-    const MEME = gMeme.lines[line];
+
+function switchLines() {
+    if (gCurrLineIdx === line) return;
+    else gCurrLineIdx = line;
+}
+
+function updateMeme(key, val) {
+    const line = gMeme.lines[gMeme.selectedLineIdx];
     switch (key) {
         case 'txt':
-            MEME.txt = val;
+            line.txt = val;
             break;
         case 'size':
-            MEME.size += val;
+            line.size += val;
             break;
         case 'lineX':
-            MEME.posX += val;
+            line.posX += val;
             break;
         case 'lineY':
-            MEME.posY += val;
+            line.posY += val;
             break;
         case 'fill':
-            MEME.fill = val;
+            line.fill = val;
             break;
         case 'stroke':
-            MEME.stroke = val;
+            line.stroke = val;
             break;
         case 'font':
-            MEME.font = val;
+            line.font = val;
             break;
         case 'align':
-            MEME.align = val;
+            line.align = val;
             break;
     }
 }
@@ -129,7 +135,7 @@ function addLine() {
         fill: 'white',
         stroke: 'black',
         posX: 225,
-        posY: 225
+        posY: 150
     }
     gMeme.lines.push(line);
 }
