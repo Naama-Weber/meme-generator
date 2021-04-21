@@ -10,6 +10,8 @@
   src: url(../fonts/roboto-italic.ttf);
 }
 
+/* GENERAL / BODY */
+
 * {
   box-sizing: border-box;
 }
@@ -123,6 +125,7 @@ header a:hover {
   object-fit: cover;
   object-position: 50% 50%;
 }
+
 /* EDITOR */
 
 .meme-editor {
@@ -202,7 +205,7 @@ footer {
   margin-top: 10px;
 }
 
-/* MEDIA QUERIES */
+/* MEDIA QUERY */
 
 @media (max-width: 800px) {
   .gallery-container {

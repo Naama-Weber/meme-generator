@@ -9,22 +9,22 @@ var gKeywords = { 'happy': 12, 'funny': 1 }
 var gImgs = [
     { id: 1, url: '1.jpg', keywords: ['politics'] },
     { id: 2, url: '2.jpg', keywords: ['cute', 'animals'] },
-    { id: 3, url: '3.jpg', keywords: ['cute', 'animals'] },
+    { id: 3, url: '3.jpg', keywords: ['cute', 'animals', 'babies'] },
     { id: 4, url: '4.jpg', keywords: ['cute', 'animals'] },
-    { id: 5, url: '5.jpg', keywords: ['cute', 'animals'] },
-    { id: 6, url: '6.jpg', keywords: ['cute', 'animals'] },
-    { id: 7, url: '7.jpg', keywords: ['cute', 'animals'] },
-    { id: 8, url: '8.jpg', keywords: ['cute', 'animals'] },
-    { id: 9, url: '9.jpg', keywords: ['cute', 'animals'] },
-    { id: 10, url: '10.jpg', keywords: ['cute', 'animals'] },
-    { id: 11, url: '11.jpg', keywords: ['cute', 'animals'] },
-    { id: 12, url: '12.jpg', keywords: ['cute', 'animals'] },
-    { id: 13, url: '13.jpg', keywords: ['cute', 'animals'] },
-    { id: 14, url: '14.jpg', keywords: ['cute', 'animals'] },
-    { id: 15, url: '15.jpg', keywords: ['cute', 'animals'] },
-    { id: 16, url: '16.jpg', keywords: ['cute', 'animals'] },
-    { id: 17, url: '17.jpg', keywords: ['cute', 'animals'] },
-    { id: 18, url: '18.jpg', keywords: ['cute', 'animals'] }
+    { id: 5, url: '5.jpg', keywords: ['cute', 'babies'] },
+    { id: 6, url: '6.jpg', keywords: ['tv', 'funny'] },
+    { id: 7, url: '7.jpg', keywords: ['cute', 'funny', 'babies'] },
+    { id: 8, url: '8.jpg', keywords: ['tv', 'funny'] },
+    { id: 9, url: '9.jpg', keywords: ['cute', 'funny', 'babies'] },
+    { id: 10, url: '10.jpg', keywords: ['politics', 'funny'] },
+    { id: 11, url: '11.jpg', keywords: ['tv', 'funny'] },
+    { id: 12, url: '12.jpg', keywords: ['tv', 'funny'] },
+    { id: 13, url: '13.jpg', keywords: ['tv', 'funny'] },
+    { id: 14, url: '14.jpg', keywords: ['tv'] },
+    { id: 15, url: '15.jpg', keywords: ['tv'] },
+    { id: 16, url: '16.jpg', keywords: ['tv', 'funny'] },
+    { id: 17, url: '17.jpg', keywords: ['politics'] },
+    { id: 18, url: '18.jpg', keywords: ['cute', 'tv'] }
 ];
 var gMeme = {
     selectedImgId: 1,
@@ -107,24 +107,6 @@ function updateMeme(key, val) {
             line.align = val;
             break;
     }
-}
-
-
-function updateLineSize(line, size) {
-    gMeme.selectedLineIdx = line;
-    gMeme.lines[gMeme.selectedLineIdx].size = size;
-}
-
-function getLines() {
-    return gMeme.lines;
-}
-
-function getLine() {
-    return gMeme.lines[gMeme.selectedLineIdx];
-}
-
-function getFontSize() {
-    return gMeme.lines[gCurrLineIdx].size;
 }
 
 function addLine() {

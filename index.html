@@ -11,10 +11,11 @@
 </head>
 
 <body onload="onInit()">
-    <div class="main-screen" onclick="onToggleMenu()"></div>
     <div class="header-container">
         <header class="container">
-            <div class="logo-container"><img class="logo-img" src="images/logos/logo.png"></div>
+            <div class="logo-container">
+                <img class="logo-img" src="images/logos/logo.png">
+            </div>
             <div class="nav-container">
                 <span class="exit-hamburger" onclick="onToggleMenu()">x</span>
                 <nav class="main-nav">
@@ -23,7 +24,7 @@
                     <a href="#">About</a>
                 </nav>
             </div>
-                <button class="btn-menu" onclick="onToggleMenu()">☰</button>
+            <button class="btn-menu" onclick="onToggleMenu()">☰</button>
         </header>
     </div>
 
@@ -53,7 +54,8 @@
                     <button onclick="onAddLine()">+</button>
                     <button onclick="onSwitchLine()">⮃</button>
                     <button onclick="onRemoveLine()">x</button>
-                    <button class="download-btn"><a class="download" href="#" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a></button>
+                    <button class="download-btn"><a class="download" href="#" onclick="onDownloadMeme(this)"
+                            download="my-meme.jpg">Download</a></button>
                 </div>
             </div>
         </div>
@@ -64,8 +66,6 @@
     <footer>by Naama Weber</footer>
 </body>
 
-<script src="js/meme-utils.js"></script>
-<script src="js/services/storage-service.js"></script>
 <script src="js/meme-service.js"></script>
 <script src="js/meme-controller.js"></script>
 
