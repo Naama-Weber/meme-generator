@@ -37,7 +37,7 @@
                 <canvas id="canvas" width="500" height="500"></canvas>
             </div>
             <div class="control-box">
-                <button class="back-btn" onclick="onGoBack()">←</button>
+                <button class="back-btn" onclick="onGoBack()">⮌</button>
                 <h3>Edit Text Lines</h3>
                 <lable for="line">Text
                     <input class="text-line" type="text" name="line" oninput="onEditText(this.value)"></input>
@@ -50,9 +50,9 @@
                     <button class="color-btn"><input type="color" oninput="onChangeFill(this.value)">Fill</button>
                     <button class="color-btn"><input type="color" oninput="onChangeStroke(this.value)">Stroke</button>
                     <button onclick="onAddLine()">+</button>
-                    <button onclick="onSwitchLine()">⬆⬇</button>
+                    <button onclick="onSwitchLine()">⮃</button>
                     <button onclick="onRemoveLine()">x</button>
-                    <a class="download" href="#" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a>
+                    <button class="download-btn"><a class="download" href="#" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a></button>
                 </div>
             </div>
         </div>

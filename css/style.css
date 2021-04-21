@@ -153,16 +153,35 @@ canvas {
   justify-content: space-between;
 }
 
-.control-btns button {
+.control-btns button,
+.back-btn,
+button.color-btn input {
   width: 30px;
   height: 30px;
+  border: none;
 }
 
-button.color-btn{
+.color-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+button.color-btn,
+button.download-btn {
   width: 100px;
 }
 
+button.download-btn {
+  background-color: #ff9826;
+  border-radius: 16px;
+}
 
+button.download-btn a {
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+}
 
 .hide-editor {
   display: none;
@@ -224,5 +243,14 @@ footer {
 
   .container {
     max-width: 700px;
+  }
+
+  .meme-editor {
+    flex-direction: column;
+  }
+  .canvas-container,
+  .control-box {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }
