@@ -48,7 +48,7 @@ var gMeme = {
             fill: 'white',
             stroke: 'black',
             posX: 225,
-            posY: 375
+            posY: 400
         }
     ]
 }

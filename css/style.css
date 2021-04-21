@@ -97,6 +97,7 @@ header a:hover {
   border: 1px solid #ebebeb;
   border-radius: 81px;
   font-family: roboto-italic, sans-serif;
+  padding-left: 30px;
 }
 
 /* GALLERY */
@@ -120,26 +121,30 @@ header a:hover {
 }
 /* EDITOR */
 
-.back-btn {
-  background-color: black;
-  color: wheat;
-  cursor: pointer;
-}
+
 
 .meme-editor {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .canvas-container {
+  width: 50%;
   margin: 0;
-  border: 1px solid black;
+}
+
+canvas {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.back-btn {
+  color: #989898;
+  /* cursor: pointer; */
 }
 
 .control-box {
-  width: 50vw;
-  height: 50vh;
-  border: 1px solid black;
+  width: 45%;
   display: flex;
   flex-direction: column;
 }
