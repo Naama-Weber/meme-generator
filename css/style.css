@@ -121,8 +121,6 @@ header a:hover {
 }
 /* EDITOR */
 
-
-
 .meme-editor {
   display: flex;
   justify-content: space-between;
@@ -140,7 +138,7 @@ canvas {
 
 .back-btn {
   color: #989898;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 .control-box {
@@ -151,7 +149,6 @@ canvas {
 
 .control-btns {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -160,6 +157,12 @@ canvas {
   width: 30px;
   height: 30px;
 }
+
+button.color-btn{
+  width: 100px;
+}
+
+
 
 .hide-editor {
   display: none;

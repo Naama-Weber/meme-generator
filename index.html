@@ -47,9 +47,12 @@
                     <button data-size="-2" onclick="onDecreaseText(+this.dataset.size)">A-</button>
                     <button data-line="-10" onclick="onMoveLineUp(+this.dataset.line)">⬆</button>
                     <button data-line="10" onclick="onMoveLineDown(+this.dataset.line)">⬇</button>
+                    <button class="color-btn"><input type="color" oninput="onChangeFill(this.value)">Fill</button>
+                    <button class="color-btn"><input type="color" oninput="onChangeStroke(this.value)">Stroke</button>
                     <button onclick="onAddLine()">+</button>
+                    <button onclick="onSwitchLine()">⬆⬇</button>
+                    <button onclick="onRemoveLine()">x</button>
                     <a class="download" href="#" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a>
-                    <a class="save" href="#" onclick="onSaveMeme(this)">Save</a>
                 </div>
             </div>
         </div>

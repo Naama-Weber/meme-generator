@@ -19,12 +19,6 @@ function renderGallery() {
     elGalleryContainer.innerHTML = strHTMLs.join('');
 }
 
-// function resizeCanvas() {
-//     let elContainer = document.querySelector('.canvas-container');
-//     gCanvas.width = elContainer.offsetWidth;
-//     gCanvas.height = elContainer.offsetHeight;
-// }
-
 function resizeCanvas(width, height) {
     gCanvas.width = width;
     gCanvas.height = height;
@@ -55,6 +49,7 @@ function drawText() {
         gCtx.textAlign = line.align;
         gCtx.posY = line.posY;
         gCtx.posX = line.posX;
+        if (line.isFocused) gCtx.strokeStyle = 'red';
         gCtx.fillText(line.txt, line.posX, line.posY);
         gCtx.strokeText(line.txt, line.posX, line.posY);
     });
@@ -85,45 +80,36 @@ function onMoveLineDown(num) {
     onRenderCanvas();
 }
 
-function onAddLine() {
-    addLine();
-    changeCurrLineIdx(1);
+function onChangeFill(color) {
+    updateMeme('fill', color);
     onRenderCanvas();
 }
 
-function onChangeCurrLine() {
-    return changeCurrLineIdx();
+function onChangeStroke(color) {
+    updateMeme('stroke', color);
+    onRenderCanvas();
+}
+
+function onSwitchLine() {
+    changeCurrLineIdx();
+    onRenderCanvas();
+}
+
+function onAddLine() {
+    addLine();
+    changeCurrLineIdx();
+    onRenderCanvas();
+}
+
+function onRemoveLine() {
+    removeLine();
+    onRenderCanvas();
 }
 
 function onDownloadMeme(elLink) {
     let imgContent = canvas.toDataURL();
     elLink.href = imgContent;
 }
-
-function onSaveMeme(link) {
-    console.log(link)
-    saveToStorage()
-}
-
-
-// function handleMouse(ev) {
-//     console.log('ev:', ev);
-//     document.querySelector('input[name=line-top]').innerText = ev.type
-// }
-
-// function handleTouch(ev) {
-//     ev.preventDefault();
-//     console.log('ev:', ev);
-//     document.querySelector('.touch h3').innerText = ev.type
-
-// }
-
-// function handleBoth(ev) {
-//     ev.preventDefault();
-//     console.log('ev:', ev.type);
-//     document.querySelector('.both h3').innerText = ev.type
-
-// }
 
 function onShowEditor() {
     let elEditor = document.querySelector('.meme-editor');
@@ -136,5 +122,5 @@ function onGoBack() {
 }
 
 function onToggleMenu() {
-    document.body.classList.toggle('menu-open')
+    document.body.classList.toggle('menu-open');
 }

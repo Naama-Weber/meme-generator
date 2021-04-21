@@ -37,8 +37,9 @@ var gMeme = {
             align: 'center',
             fill: 'white',
             stroke: 'black',
-            posX: 225,
-            posY: 100
+            posX: 250,
+            posY: 100,
+            isFocused: true
         },
         {
             txt: 'line2',
@@ -47,8 +48,9 @@ var gMeme = {
             align: 'center',
             fill: 'white',
             stroke: 'black',
-            posX: 225,
-            posY: 400
+            posX: 250,
+            posY: 400,
+            isFocused: false
         }
     ]
 }
@@ -67,15 +69,14 @@ function updateSelectedImg(imgId) {
     gCurrImg = imgId
 }
 
-function changeCurrLineIdx(idx) {
-    gMeme.selectedLineIdx = idx;
-    gCurrLineIdx = idx;
-}
+function changeCurrLineIdx() {
+    gMeme.lines[gMeme.selectedLineIdx].isFocused = false;
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx > gMeme.lines.length - 1) {
+        gMeme.selectedLineIdx = 0;
+    }
+    gMeme.lines[gMeme.selectedLineIdx].isFocused = true;
 
-
-function switchLines() {
-    if (gCurrLineIdx === line) return;
-    else gCurrLineIdx = line;
 }
 
 function updateMeme(key, val) {
@@ -128,14 +129,19 @@ function getFontSize() {
 
 function addLine() {
     let line = {
-        txt: '',
+        txt: 'line3',
         size: 50,
         font: 'Impact',
         align: 'center',
         fill: 'white',
         stroke: 'black',
-        posX: 225,
-        posY: 150
+        posX: 250,
+        posY: 250,
+        isFocused: false
     }
     gMeme.lines.push(line);
+}
+
+function removeLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
 }
