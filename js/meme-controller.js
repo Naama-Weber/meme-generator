@@ -55,8 +55,8 @@ function drawText() {
     });
 }
 
-function onEditText(txt, line) {
-    updateMeme('txt', txt, line);
+function onEditText(txt) {
+    updateMeme('txt', txt);
     onRenderCanvas();
 }
 

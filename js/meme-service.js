@@ -111,7 +111,7 @@ function updateMeme(key, val) {
 
 function addLine() {
     let line = {
-        txt: 'line3',
+        txt: 'line',
         size: 50,
         font: 'Impact',
         align: 'center',
